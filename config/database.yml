@@ -1,0 +1,25 @@
+default: &default
+  database: todoshka
+  username: combos
+  password: <%= ENV['TODOSHKA_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: todoshka
+  username: combos
+  password: <%= ENV['TODOSHKA_DATABASE_PASSWORD'] %>
+  host: ''
+  port: 5432
+
+test:
+  <<: *default
+  database: todoshka
+
+production:
+  <<: *default
+  database: Todoshka_production
+  username: combos
+  password: <%= ENV['TODOSHKA_DATABASE_PASSWORD'] %>
