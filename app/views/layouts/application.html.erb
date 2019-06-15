@@ -11,10 +11,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
 
-  <body>
+  <body id="body" class="dark-mode">
     <div class="container">
       <div class="row">
         <%= yield %>
+      </div>
+      <div class="row buffer-top">
+        <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
+      </div>
+
+      <div class="row buffer-top">
+        <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
       </div>
     </div>   
   </body>
