@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :complete, :destroy]
 
   def index
-    @tasks = Task.where(completed: false).order('priority DESC')
+    @tasks = Task.where(completed: false).order('created_at DESC')
     @completed_tasks = Task.where(completed: true).order('updated_at')
   end
 
