@@ -1,8 +1,9 @@
-<div class="col-md-6">
+<div class="col-md-5">
   <%= simple_form_for @task do |f| %>
     <p><%= f.input :title %></p>
     <p><%= f.select :priority, Task::PRIORITIES %></p>
-    <%= f.input :completed %>
-    <p><%= f.button :submit %></p>
+    <p><%= f.input :completed %></p>
+    <p><%= f.input :deadline %></p>
+    <p><%= f.button :submit, class: "btn btn-info" %></p>
   <% end %>
 </div>
