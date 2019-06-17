@@ -22,7 +22,9 @@ function toggleDarkLight() {
   }
 
 function randomize() {
-  document.getElementById('body').style.color = randomColors();
+  var body = document.getElementById('body').style.color = randomColors();
+  var all = document.getElementById('all').style.color = randomColors();
+  var li = document.querySelectorAll('li').style.color = randomColors();
 }
 
 

@@ -20,6 +20,15 @@ body {font-size: 1.75em}
   margin-top: 2em;
 }
 
+.buffer-bottom {
+  margin-bottom: 2em;
+}
+
+.buffer-both {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
 .deadline { color: #58bdef; text-decoration: bold; }
 .task {
   margin-bottom: 1em;
@@ -43,29 +52,29 @@ body {font-size: 1.75em}
 
 .completed_true .done {display: none;}
 
-$light-color: #111;
-$dark-color: #eee;
-
-body.dark-mode {
-  background-color: $dark-color;
-  color: $light-color;
-  a {
-    color: $dark-color;
-  }
-  button {
-    background-color: #111;
-    color: #eee;
-  }
-}
-
-body.light-mode {
-  background-color: $light-color;
-  color: $dark-color;
-  a {
-    color: $dark-color;
-  }
-  button {
-    background-color: $dark-color;
-    color: $light-color;
-  }
-}
+/*light-color: #111;
+*dark-color: #eee;
+*
+*ody.dark-mode {
+* background-color: $dark-color;
+* color: $light-color;
+* a {
+*   color: $dark-color;
+* }
+* button {
+*   background-color: #111;
+*   color: #eee;
+* }
+*
+*
+*ody.light-mode {
+* background-color: $light-color;
+* color: $dark-color;
+* a {
+*   color: $dark-color;
+* }
+* button {
+*   background-color: $dark-color;
+*   color: $light-color;
+* }
+*/

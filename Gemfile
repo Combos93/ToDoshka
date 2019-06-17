@@ -7,6 +7,7 @@ gem 'rails', '~> 5.2.3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
+gem 'devise'
 
 gem 'pg'
 

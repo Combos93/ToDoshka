@@ -12,17 +12,37 @@
   </head>
 
   <body id="body" class="dark-mode">
-    <div class="container">
-      <div class="row">
-        <%= yield %>
-      </div>
-      <div class="row buffer-top">
-        <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
-      </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <div class="container">
+        <%#= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+        <%= link_to 'TODO', root_path, class: 'navbar-brand' %>
 
-      <div class="row buffer-top">
-        <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <div class="navbar-brand buffer-left">
+                <li><%= current_user.nickname %></li>
+              </div>
+              <li><%= link_to 'Профиль', current_user %></li>
+              <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+              <li style="margin-top: 10px">
+                <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
+              </li>
+            <% else %>
+              <li><%= link_to 'Войти', new_user_session_path %></li>
+              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+              <li style="margin-top: 20px">
+                <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="container">
+          <div class="row">
+            <%= yield %>
+          </div>
+        </div>   
       </div>
-    </div>   
+    </div>
   </body>
 </html>
