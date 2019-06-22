@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 
   before_action :set_current_user, except: [:show]
 
+  before_action :set_user, only: [:show]
+
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -18,6 +19,12 @@ class UsersController < ApplicationController
     end
   end
   
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def set_current_user
     @user = current_user
   end

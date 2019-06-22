@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body {font-size: 1.75em}
+body {font-size: 1.75em;}
 
 .buffer-top {
   margin-top: 2em;
@@ -29,7 +29,33 @@ body {font-size: 1.75em}
   margin-top: 2em;
 }
 
-.deadline { color: #58bdef; text-decoration: bold; }
+.tasks {
+  display: inline-block;
+  border: ridge gray 2px;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+
+.button { 
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 20px;
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  border: none;
+}
+
+.edit-button {
+  background: blue;
+  color: #fff;
+}
+
+.deadline { color: red; text-decoration: bold; }
+
+.created { color: #58bdef; text-decoration: bold; }
+
 .task {
   margin-bottom: 1em;
 
@@ -44,6 +70,7 @@ body {font-size: 1.75em}
 .priority_1 {color: #009090}
 .priority_2 {color: #c09000}
 .priority_3 {color: #c00000}
+
 .completed_true .title {color: #c0c0c0; text-decoration: line-through}
 
 .done {

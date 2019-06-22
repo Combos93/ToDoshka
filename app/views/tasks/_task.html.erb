@@ -1,9 +1,12 @@
 <div class="task priority_<%= task.priority %> completed_<%= task.completed %>">
-  <p>
-  <span class="title"><%= task.title %></span>
-  <span class="deadline"><%= task.created_at.strftime(" |TO DO %d.%m.%Y --- %H:%M") %></span>
-  <%= link_to content_tag('span', '', class: 'fa fa-edit'), edit_task_path(task), class: 'action' %>
-  <%= link_to content_tag('span', '', class: 'fa fa-trash'), task, method: :delete, class: 'action' %>
-  <%= link_to content_tag('span', '', class: 'fa fa-check-square-o'), complete_task_path(task), data: {method: :put}, class: 'done action' %>
-  </p>
+  <div class="1tasks">
+    <p><span class="1create">Owner: <%= task.user.nickname %></span></p>
+    <p><span class="1title"><%= task.title %></span></p>
+    <p><span class="1create"><%= task.created_at.strftime("Create: %d.%m.%Y --- %H:%M") %></span></p>
+    <p><span class="1deadline"><%= task.deadline.strftime("TO DO %d.%m.%Y --- %H:%M") %></span></p>
+  </div>
+      <%= link_to content_tag('span', 'Edit task', class: 'btn btn-danger'), edit_task_path(task), class: 'action' %>
+    <%= link_to content_tag('span', '', class: 'fa fa-edit'), edit_task_path(task), class: 'action' %>
+    <%= link_to content_tag('span', '', class: 'fa fa-trash'), task, method: :delete, class: 'action' %>
+    <%= link_to content_tag('span', '', class: 'fa fa-check-square-o'), complete_task_path(task), data: {method: :put}, class: 'done action' %>
 </div>
