@@ -12,12 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
  */
 
 body {font-size: 1.75em;}
 
 .buffer-top {
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 .buffer-bottom {
@@ -34,6 +35,7 @@ body {font-size: 1.75em;}
   border: ridge gray 2px;
   padding: 5px 5px;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .button { 
@@ -52,9 +54,38 @@ body {font-size: 1.75em;}
   color: #fff;
 }
 
-.deadline { color: red; text-decoration: bold; }
+.edit-button:hover {
+  background: lavender;
+  transition: all 0.2s ease;
+  color: black;
+}
 
-.created { color: #58bdef; text-decoration: bold; }
+.todo {
+   display: inline-block;
+ }
+
+ .row-buttons {
+   position: relative;
+   margin-left: 0px;
+   padding-bottom: 3px;
+ }
+
+.todo-buttons {
+  position: relative;
+  display: inline-block;
+  height: 130px;
+  width: 115px;
+}
+
+.deadline { 
+  color: red;
+  text-decoration: bold;
+}
+
+.created { 
+  color: #58bdef;
+  text-decoration: bold;
+}
 
 .task {
   margin-bottom: 1em;

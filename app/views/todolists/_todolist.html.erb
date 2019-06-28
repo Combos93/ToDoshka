@@ -1,0 +1,15 @@
+<div class="todo">
+  <div class="tasks">
+    <p><span class="create">Owner: <%= todolist.user.nickname %></span></p>
+    <p><span class="title"><%= todolist.title %></span></p>
+    <p><span class="title"><%= todolist.description %></span></p>
+    <p><span class="create"><%= todolist.created_at.strftime("Create: %d.%m.%Y --- %H:%M") %></span></p>
+  </div>
+  <div class="todo-buttons">
+    <div class="row row-buttons"><%= link_to content_tag('span', 'Show', class: 'btn btn-success'), todolist, class: 'action' %></div>
+    <% if user_signed_in? %>
+      <div class="row row-buttons"><%= link_to content_tag('span', 'Edit todolist', class: 'btn btn-primary'), edit_todolist_path(todolist), class: 'action' %></div>
+    <div class="row row-buttons"><%= link_to content_tag('span', 'Delete todolist', class: 'btn btn-danger'), todolist, method: :delete, class: 'action' %></div>
+  <% end %>
+  </div>
+</div>

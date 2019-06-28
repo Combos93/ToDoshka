@@ -1,0 +1,14 @@
+<div class="col-md-12">
+  <h1>My Tasks</h1>
+
+  <div class="buffer-top">
+    <%= render partial: 'tasks/task', collection: @tasks %>
+    <hr />
+    <%= render partial: 'tasks/task', collection: @completed_tasks %>
+  </div>
+
+  <div class="buffer-both">
+    <%= link_to "New task", new_todolist_task_path(@todolist), class: 'btn btn-primary' %>
+  </div>
+
+</div>

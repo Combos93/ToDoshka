@@ -1,0 +1,132 @@
+ru:
+  devise:
+    registrations:
+      user:
+        signed_up: "Пользователь успешно авторизовался."
+    sessions:
+      user:
+        signed_in: "Пользователь успешно авторизовался."
+        signed_out: "Пользователь вышел."
+  activerecord:
+    models:
+      user: 'Пользователь'
+      event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
+      photo: 'Фотография'
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        avatar: 'Аватарка'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+        pincode: 'Пинкод доступа'
+      comment:
+        user_name: 'Ваше имя'
+        body: 'Комментарий'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Ваш email'
+      photo:
+        photo: 'Фотография'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              invalid?: ' принадлежит зарегистрированному пользователю'
+        user:
+          attributes:
+            nickname:
+              invalid: 'не верен!'
+      errors_field:
+        title_one_error: 'В Вашей форме одна ошибка'
+        title_few_errors: 'В Вашей форме %{count} ошибки'
+        title_many_errors: 'В Вашей форме %{count} ошибок'
+  controllers:
+    events:
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие ;('
+      wrong_pincode: 'Неверный пинкод!'
+    users:
+      updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удалён'
+      created: 'Ваш комментарий создан'
+      error: 'Ошибка с комментариями'
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+      same_email: 'Введите другой e-mail'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
+      question: 'Вы хотите удалить фотографию?'
+  app:
+    name: 'Шашлыкs и не только'
+    company: 'Хороший программист & Combos93'
+  errors:
+    one: 'одна ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'
+    questions:
+    del_question_confirm?: 'А Вы точно хотите удалить событие?'
+  log_in:
+    log_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    remember_me: 'Запомнить меня'
+    forgot_pass: 'Забыли пароль?'
+  forgot_pass:
+    Send me reset password instructions: 'Выслать новый пароль'
+    Forgot your password: 'Забыли ваш пароль?'
+    email: 'Ваш email'
+  change_pass:
+    change: 'Изменение пароля'
+    new: 'Новый пароль'
+    chars: 'символов минимум'
+    corfirm: 'Подтвердите Ваш пароль'
+    fix_change: 'Изменить пароль'
+  sign_up:
+    sign_up: 'Зарегистрироваться'
+    log_in: 'Войти'
+    password_how_many: 'Минимум 6 символов'
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    photo:
+      title: 'Новая фотография'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+  pundit:
+    not_authorized: 'Вы не авторизованы!'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_131832) do
+ActiveRecord::Schema.define(version: 2019_06_22_073049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,20 @@ ActiveRecord::Schema.define(version: 2019_06_17_131832) do
     t.datetime "updated_at", null: false
     t.datetime "deadline"
     t.bigint "user_id"
+    t.text "description"
+    t.bigint "todolist_id"
+    t.index ["todolist_id"], name: "index_tasks_on_todolist_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "todolists", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "pincode"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_todolists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,5 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_131832) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "todolists"
   add_foreign_key "tasks", "users"
+  add_foreign_key "todolists", "users"
 end

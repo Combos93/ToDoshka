@@ -7,13 +7,13 @@
 
   <div class="buffer-top">
     <% @tasks.each do |task| %>
-      <%= render partial: 'tasks/task', object: @task %>
+      <%= render partial: 'tasks/task', object: task, collection: @tasks %>
     <% end %>
     
     <hr />
     
     <% @completed_tasks.each do |task| %>
-      <%= render partial: 'tasks/task', object: @task %>
+      <%= render partial: 'tasks/task', collection: @completed_tasks %>
     <% end %>
   </div>
 

@@ -8,6 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/fdd730e526.js"></script>
+    <script>
+      $('#datepicker').datepicker({format: 'dd/mm/yyyy'});
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
 
@@ -21,7 +24,7 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
               <div class="navbar-brand buffer-left">
-                <li><%= current_user.nickname %></li>
+                <li><%= @user = current_user.nickname %></li>
               </div>
               <li><%= link_to 'Профиль', current_user %></li>
               <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
@@ -31,7 +34,7 @@
             <% else %>
               <li><%= link_to 'Войти', new_user_session_path %></li>
               <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
-              <li style="margin-top: 20px">
+              <li style="margin-top: 10px">
                 <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
               </li>
             <% end %>

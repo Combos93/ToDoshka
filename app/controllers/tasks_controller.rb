@@ -1,55 +1,91 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:edit, :update, :complete, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+
+  #before_action :set_todolist, only: [:new, :create, :edit, :destroy]
+  #before_action :set_task, except: [:new, :create, :destroy]
 
   def index
-    @tasks = Task.where(completed: false).order('created_at DESC')
-    @completed_tasks = Task.where(completed: true).order('updated_at')
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
+
+    @tasks = @todolist.tasks.where(completed: false).order('created_at ASC')
+    @completed_tasks = @todolist.tasks.where(completed: true).order('updated_at')
   end
 
   def new
-    @task = current_user.tasks.build
+    @todolist = Todolist.find(params[:todolist_id])
+
+    @task = Task.new
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
+    @todolist = Todolist.find(params[:todolist_id])
+
+    @task = @todolist.tasks.build(task_params)
+    @task.user = current_user
 
     if @task.save
-      redirect_to tasks_path, notice: 'Your task created successfully!'
+      redirect_to @todolist, notice: 'Your task created successfully!'
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
+  end
+
+  def show
+    @todolist = Todolist.find(params[:todolist_id])
+
+    @tasks = @todolist.tasks.where(completed: false).order('created_at DESC')
+    @completed_tasks = @todolist.tasks.where(completed: true).order('updated_at')
+  end
+
+  def update
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
+
+    if @task.update(task_params)
+      redirect_to todolist_task_path 
     else
       render :edit
     end
   end
 
-  def edit
-  end
-
-  def update
-    @task.update_attributes(task_params)
-
-    redirect_to tasks_path
-  end
-
   def complete
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
+
     @task.complete!
 
-    redirect_to tasks_path
+    redirect_to @todolist
   end
 
   def destroy
-    @task.destroy
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
 
-    redirect_to tasks_path
-  end
-
-  def find_task
-    @task = Task.find(params[:id])
+    if @task.destroy
+      redirect_to todolist_task_path
+    end
   end
 
   private
 
+  def set_todolist
+    @todolist = Todolist.find(params[:todolist_id])
+  end
+
+  def set_task
+    @task = @todolist.tasks.find(params[:id])
+  end
+
   def task_params
     params.require(:task).permit([
-      :user_id, :title, :priority, :completed, :deadline
+      :todolist_id, :user_id, :description,
+      :title, :priority, :completed, :deadline
     ])
   end
 end

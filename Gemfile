@@ -6,8 +6,10 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
 gem 'devise'
+gem 'i18n'
 
 gem 'pg'
 

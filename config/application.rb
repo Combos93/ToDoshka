@@ -27,15 +27,20 @@ module Todoshka
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.i18n.default_locale = :ru
+
+    config.assets.initialize_on_precompile = true
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 
     config.time_zone = 'Asia/Omsk'
+    # Но это Омск
 
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
     config.i18n.locale = :ru
 
-    I18n.config.available_locales = :en, :ru
+    I18n.config.available_locales = :ru, :en
 
     config.i18n.fallbacks = [:en]
   end

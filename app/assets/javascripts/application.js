@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require bootstrap-datepicker
 // require turbolinks
 //= require_tree .
 

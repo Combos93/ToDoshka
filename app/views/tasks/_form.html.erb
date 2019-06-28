@@ -1,9 +1,45 @@
-<div class="col-md-5">
-  <%= simple_form_for @task do |f| %>
-    <p><%= f.input :title %></p>
-    <p><%= f.select :priority, Task::PRIORITIES %></p>
-    <p><%= f.input :completed %></p>
-    <p><%= f.input :deadline %></p>
-    <p><%= f.button :submit, class: "btn btn-info" %></p>
-  <% end %>
+<div class="col-md-8">
+  <%#= simple_form_for(@task, as: :task, method: :post, url: new_todolist_task_path)  do |f| %>
+    <%= form_for([@todolist, @task]) do |f| %>
+      <%= render partial: 'partials/form_errors', locals: {model: @task} %>
+
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <p><%= f.label :title, 'Название', class: 'form-label' %></p>
+          <p><%= f.text_field :title, class: 'form-control', required: true %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <p><%= f.label :description, 'Описаниe', class: 'form-label' %></p>
+          <p><%= f.text_field :description, class: 'form-control', required: true %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <p><%= f.label :priority, 'Приоритет задачи', class: 'form-label' %></p>
+          <p><%= f.select :priority, Task::PRIORITIES, class: 'form-control form-control-lg' %></p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-3">Завершена? </div>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <p><%= f.check_box :completed, class: 'form-check-input' %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <p><%= f.label :deadline, 'Deadline', class: 'form-label' %></p>
+          <p><%= f.date_field :deadline, :id => "datepicker",
+            class: 'form-control', required: true %></p>
+        </div>
+      </div>
+      <p><%= f.submit 'Create', class: 'btn btn-info' %></p>
+    <% end %>
 </div>

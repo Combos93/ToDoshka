@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todolists</h1>
+
+<div class="buffer-top">
+  <%= render partial: 'todolists/todolist', collection: @todolists %>
+</div>
+
+<div class="buffer-top">
+  <% if user_signed_in? %>
+    <%= link_to 'New Todolist', new_todolist_path, class: 'button edit-button' %>
+  <% end %>
+</div>
