@@ -7,7 +7,7 @@
   </div>
   <div class="todo-buttons">
     <div class="row row-buttons"><%= link_to content_tag('span', 'Show', class: 'btn btn-success'), todolist, class: 'action' %></div>
-    <% if user_signed_in? %>
+  <% if current_user_can_edit?(todolist) %>
       <div class="row row-buttons"><%= link_to content_tag('span', 'Edit todolist', class: 'btn btn-primary'), edit_todolist_path(todolist), class: 'action' %></div>
     <div class="row row-buttons"><%= link_to content_tag('span', 'Delete todolist', class: 'btn btn-danger'), todolist, method: :delete, class: 'action' %></div>
   <% end %>

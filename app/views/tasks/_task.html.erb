@@ -5,7 +5,9 @@
     <p><span class="create"><%= task.created_at.strftime("Create: %d.%m.%Y --- %H:%M") %></span></p>
     <p><span class="deadline"><%= task.deadline.strftime("TO DO %d.%m.%Y --- %H:%M") %></span></p>
   </div>
-  <%= link_to content_tag('span', 'Edit task', class: 'btn btn-danger'), edit_todolist_task_path(@todolist, task), class: 'action' %>
-  <%= link_to content_tag('span', '', class: 'fa fa-trash'), todolist_task_path(@todolist, task), class: 'action', method: :delete %>
-  <%= link_to content_tag('span', '', class: 'fa fa-check-square-o'), complete_todolist_task_path(@todolist, task), data: { method: :put }, class: 'done action' %>
+  <% if current_user_can_edit?(@todolist) %>
+    <%= link_to content_tag('span', 'Edit task', class: 'btn btn-danger'), edit_todolist_task_path(@todolist, task), class: 'action' %>
+    <%= link_to content_tag('span', '', class: 'fa fa-trash'), todolist_task_path(@todolist, task), class: 'action', method: :delete %>
+    <%= link_to content_tag('span', '', class: 'fa fa-check-square-o'), complete_todolist_task_path(@todolist, task), data: { method: :put }, class: 'done action' %>
+  <% end %>
 </div>
