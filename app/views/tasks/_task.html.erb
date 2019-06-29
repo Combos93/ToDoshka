@@ -2,6 +2,7 @@
   <div class="tasks">
     <p><span class="create">Owner: <%= task.user.nickname %></span></p>
     <p><span class="title"><%= task.title %></span></p>
+    <p><span class="title"><%= task.description %></span></p>
     <p><span class="create"><%= task.created_at.strftime("Create: %d.%m.%Y --- %H:%M") %></span></p>
     <p><span class="deadline"><%= task.deadline.strftime("TO DO %d.%m.%Y --- %H:%M") %></span></p>
   </div>

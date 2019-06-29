@@ -48,7 +48,7 @@ class TasksController < ApplicationController
     @task = @todolist.tasks.find(params[:id])
 
     if @task.update(task_params)
-      redirect_to todolist_task_path 
+      redirect_to @todolist 
     else
       render :edit
     end
