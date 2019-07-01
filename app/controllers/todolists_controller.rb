@@ -2,6 +2,8 @@ class TodolistsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   before_action :set_todolist, only: [:show]
+
+  before_action :password_guard!, only: [:show]
   before_action :set_current_user_todolist, only: [:edit, :update, :destroy]
 
   # GET /todolists
@@ -72,5 +74,19 @@ class TodolistsController < ApplicationController
 
   def todolist_params
     params.fetch(:todolist, {}).permit([:title, :description, :pincode, :user_id])
+  end
+
+  def password_guard!
+    return true if @todolist.pincode.blank?
+    return true if signed_in? && current_user == @todolist.user
+
+    if params[:pincode].present? && @todolist.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@todolist.id}_pincode"] = params[:pincode]
+    end
+
+    unless @todolist.pincode_valid?(cookies.permanent["events_#{@todolist.id}_pincode"])
+      flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
+      render 'password_form'
+    end
   end
 end
