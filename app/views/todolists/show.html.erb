@@ -8,9 +8,9 @@
   </div>
 
   <!-- Если кто-то захочет докидывать таски - то раскомментить! -->
-  <%# if user_signed_in? %>
+  <% if user_signed_in? %>
 
-  <% if current_user_can_edit?(@todolist) %>
+  <%# if current_user_can_edit?(@todolist) %>
     <div class="buffer-both">
       <%= link_to "New task", new_todolist_task_path(@todolist), class: 'btn btn-primary' %>
     </div>
