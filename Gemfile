@@ -9,6 +9,7 @@ gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'i18n'
+gem 'rails-i18n'
 gem 'turbolinks'
 
 gem 'pg'

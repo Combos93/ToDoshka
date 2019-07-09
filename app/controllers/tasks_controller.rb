@@ -68,7 +68,7 @@ class TasksController < ApplicationController
     @task = @todolist.tasks.find(params[:id])
 
     if @task.destroy
-      redirect_to todolist_task_path
+      redirect_to @todolist
     end
   end
 

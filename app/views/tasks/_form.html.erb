@@ -28,8 +28,10 @@
 
         <div class="form-group col-auto my-1">
           <div class="custom-control custom-checkbox mr-sm-2">
-            <%= f.check_box :completed %>
-            <label class="custom-control-label" for="customControlAutosizing">Завершена?</label>
+            <div class="field">
+              <%= f.check_box :completed %>
+              <label class="custom-control-label" for="customControlAutosizing">Завершена?</label>
+            </div>
           </div>
         </div>
 
