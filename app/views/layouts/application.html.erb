@@ -36,6 +36,9 @@
               <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
               <li style="margin-top: 10px">
                 <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
+
+                <button type="button" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'light') === 'light' ? 'dark' : 'light'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light">🌓</button>
+
               </li>
             <% end %>
           </ul>

@@ -1,21 +1,11 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  *= require bootstrap-datepicker
+ *
  */
 
-body {font-size: 1.75em;}
+body { font-size: 1.75em; }
 
 .buffer-top {
   margin-top: 1.5em;
@@ -90,7 +80,7 @@ body {font-size: 1.75em;}
 .task {
   margin-bottom: 1em;
 
-  .action {opacity: 0};
+  .action { opacity: 0 };
 
   &:hover .action {
     opacity: 1;
@@ -110,29 +100,12 @@ body {font-size: 1.75em;}
 
 .completed_true .done {display: none;}
 
-/*light-color: #111;
-*dark-color: #eee;
-*
-*ody.dark-mode {
-* background-color: $dark-color;
-* color: $light-color;
-* a {
-*   color: $dark-color;
-* }
-* button {
-*   background-color: #111;
-*   color: #eee;
-* }
-*
-*
-*ody.light-mode {
-* background-color: $light-color;
-* color: $dark-color;
-* a {
-*   color: $dark-color;
-* }
-* button {
-*   background-color: $dark-color;
-*   color: $light-color;
-* }
-*/
+body.dark {
+  background-color: rgb(30,34,39);
+  color: #fff;
+}
+body.dark code[class*=language-],
+body.dark table tbody>tr:nth-child(odd)>td,
+body.dark table tbody>tr:nth-child(odd)>th {
+  background: #282c34
+}

@@ -20,7 +20,7 @@ function toggleDarkLight() {
   var body = document.getElementById("body");
   var currentClass = body.className;
   body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
-  }
+}
 
 function randomize() {
   var body = document.getElementById('body').style.color = randomColors();
@@ -32,3 +32,7 @@ function randomize() {
 function randomColors() {
   return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  ((localStorage.getItem('mode') || 'dark') === 'dark') ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')
+})
