@@ -6,18 +6,18 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
-gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'i18n'
+gem 'turbolinks'
 
 gem 'pg'
 
 group :assets do
   gem 'sass-rails', '~> 5.0'
-  gem 'uglifier', '>= 1.3.0'
+#  gem 'uglifier'
   gem 'coffee-rails', '~> 4.2'
-  gem 'therubyracer', platform: :ruby
+  gem 'mini_racer', platform: :ruby
 end
 
 

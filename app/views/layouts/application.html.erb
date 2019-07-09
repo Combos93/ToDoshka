@@ -8,10 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/fdd730e526.js"></script>
-    <script>
-      $('#datepicker').datepicker({format: 'dd/mm/yyyy'});
-    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
   </head>
 
   <body id="body" class="dark-mode">
@@ -30,15 +29,14 @@
               <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
               <li style="margin-top: 10px">
                 <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
+                <button type="button" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'light') === 'light' ? 'dark' : 'light'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light">🌓</button>
               </li>
             <% else %>
               <li><%= link_to 'Войти', new_user_session_path %></li>
               <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
               <li style="margin-top: 10px">
                 <button type="button" name="dark_light" onclick="randomize()" title="Toggle dark/light mode">🌛</button>
-
                 <button type="button" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'light') === 'light' ? 'dark' : 'light'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light">🌓</button>
-
               </li>
             <% end %>
           </ul>
