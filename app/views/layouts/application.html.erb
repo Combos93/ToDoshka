@@ -8,12 +8,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/fdd730e526.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
   </head>
 
-  <body id="body" class="dark-mode">
+  <% if user_signed_in? %>
+    <body id="body" class="dark-mode" style="background:<%= current_user.bg_color %>; color: <%= current_user.color %>">
+  <% else %>
+    <body id="body" class="dark-mode" style="background:#000; color: #fff">
+  <% end %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <div class="container">
         <%#= link_to t('app.name'), root_path, class: 'navbar-brand' %>
@@ -48,5 +53,5 @@
         </div>   
       </div>
     </div>
-  </body>
+    </body>
 </html>

@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   validates :email, :nickname, presence: true
   validates :email, :nickname, uniqueness: true
+  validates :bg_color, presence: false
 
   # Валидация максимальной длины ника - 40 символов
   validates :nickname, length: { maximum: 40}

@@ -11,6 +11,16 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :Фон, class: 'form-label-color' %>
+    <%= f.color_field :bg_color, value: "#{current_user.bg_color}", class: 'form-color-field' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Цвет, class: 'form-label-color' %>
+    <%= f.color_field :color, value: "#{current_user.color}", class: 'form-color-field' %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>

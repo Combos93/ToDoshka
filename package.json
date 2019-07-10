@@ -2,6 +2,7 @@
   "name": "Todoshka",
   "private": true,
   "dependencies": {
+    "bootstrap-colorpicker": "^3.1.2",
     "moment": "^2.24.0"
   },
   "version": "1.0.0",
