@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
+  belongs_to :todolist
+  has_many :comments
 
   # Глобальные цели: некий маркер(поле global=t/f)
   # также как комплит ниже. Можно пометить звёздочкой,
