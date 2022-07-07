@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap-colorpicker": "^3.1.2",
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   },
   "version": "1.0.0",
   "main": "index.js",
